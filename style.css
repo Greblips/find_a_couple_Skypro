@@ -1,0 +1,89 @@
+@font-face {
+    font-family: stratosskyengweb;
+    src: url('./fonts/stratosskyengweb-regular.woff2');
+}
+
+body {
+    font-family: "stratosskyengweb";
+    background-color: #004980;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+main{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+ 
+}
+.game-section__container{
+    margin: 0 auto;
+    width: 480px;
+    height: 460px;
+    background-color: #C2F5FF;
+    border-radius: 12px;    
+}
+
+
+.game-menu__title{
+    margin: 0 auto 1.75rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 208px;
+    height: 96px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 48px;
+    color: #004980;
+    padding-top: 3.25rem;
+    font-size: 2.5rem;
+}
+
+
+
+.game-menu__difficult-btn{
+    font-family: "stratosskyengweb";
+    cursor: pointer;
+    margin-top: 3rem;
+    margin-left: 2.75rem;
+    background: #FFFFFF;
+    border-radius: 12px;
+    width: 98px;
+    height: 98px;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #0080C1;
+}
+.game-menu__start-btn{
+    font-family: "stratosskyengweb";
+    cursor: pointer;
+    margin: 4.2rem auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 246px;
+    height: 50px;
+    background: #7AC100;
+    border-radius: 12px;
+    border: none;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 32px;
+    color: #FFFFFF;
+}
