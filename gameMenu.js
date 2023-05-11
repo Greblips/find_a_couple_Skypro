@@ -1,8 +1,10 @@
+import { startGame } from "./startGame.js";
+
 export const EnterPage = () =>{
     const title = document.createElement('h2');
     
     const gameSection = document.querySelector('.game-section__container')
-    console.log(gameSection)
+
     gameSection.innerHTML='';
     title.textContent = 'Выбери сложность';
     title.classList.add('game-menu__title');
@@ -13,7 +15,7 @@ export const EnterPage = () =>{
         button.classList.add('game-menu__difficult-btn')
         button.textContent = `${difficult}`
 
-        button.addEventListener('click', ()=>{})
+        button.addEventListener('click', ()=> startGame(difficult))
 
         return button;
     }
