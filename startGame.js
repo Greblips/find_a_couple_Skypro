@@ -1,14 +1,29 @@
-import { createIconsArray, duplicateArray } from "./utils.js";
+import { createGameCard } from "./gameCard.js";
+import { createIconsArray, duplicateArray, shuffle } from "./utils.js";
 
 export const startGame = (difficult) =>{
-    let firstCard = null;
-    let secondCard = null;
-    let clicable = true;
+
 
     const gameSection = document.querySelector('.game-section__container')
-    const gameTamble = document.createElement('div')
+    const gameTable = document.createElement('div')
     const cardsIcons = createIconsArray(difficult)
     const duplicateArrayUser = duplicateArray(cardsIcons)
-   console.log(duplicateArrayUser)
+    shuffle(duplicateArrayUser)
+    const restartBtn = document.createElement('button');
+    gameSection.innerHTML = '';
+    restartBtn.textContent = 'рестарт';
+    gameTable.classList.add('game-table');
+    restartBtn.classList.add('restart-btn');
 
+
+  
+    
+
+ 
+
+   duplicateArrayUser.forEach(el =>gameTable.append(createGameCard( el)))
+
+   console.log(gameTable)
+
+    gameSection.append(restartBtn,gameTable);
 }

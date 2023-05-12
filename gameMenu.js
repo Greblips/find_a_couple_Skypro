@@ -9,26 +9,38 @@ export const EnterPage = () =>{
     title.textContent = 'Выбери сложность';
     title.classList.add('game-menu__title');
 
-    const createDifficultButton = (difficult) =>{
-        const button =document.createElement('button');
+    const easy =document.createElement('button');
+    easy.classList.add('game-menu__difficult-btn')
+    easy.textContent = 1
 
-        button.classList.add('game-menu__difficult-btn')
-        button.textContent = `${difficult}`
+    const medium =document.createElement('button');
+    medium.classList.add('game-menu__difficult-btn')
+    medium.textContent = 2
 
-        button.addEventListener('click', ()=> startGame(difficult))
+    const hard =document.createElement('button');
+    hard.classList.add('game-menu__difficult-btn')
+    hard.textContent = 3
 
-        return button;
-    }
 
     const buttonStart = document.createElement('button');
     buttonStart.classList.add('game-menu__start-btn');
     buttonStart.textContent='Старт';
-
+ 
+   
    gameSection.append(
     title,
-    createDifficultButton(1),
-    createDifficultButton(2),
-    createDifficultButton(3),
-    buttonStart,
+    easy,
+    medium,
+    hard,
+    buttonStart
    ) 
+
+   const chooseDifficult = document.querySelectorAll(".game-menu__difficult-btn")  
+   for (const chooseButtonElement of chooseDifficult) {
+       chooseButtonElement.addEventListener("click", () => {
+           const difficult = Number(chooseButtonElement.textContent)
+           buttonStart.addEventListener('click', ()=> startGame(difficult))
+       })
+   }
+
 }
