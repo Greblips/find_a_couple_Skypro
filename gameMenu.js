@@ -38,6 +38,9 @@ export const EnterPage = () =>{
    const chooseDifficult = document.querySelectorAll(".game-menu__difficult-btn")  
    for (const chooseButtonElement of chooseDifficult) {
        chooseButtonElement.addEventListener("click", () => {
+        chooseDifficult.forEach((el) => el.classList.remove('game-menu__difficult-btn_checked'));
+        chooseButtonElement.classList.add('game-menu__difficult-btn_checked');
+
            const difficult = Number(chooseButtonElement.textContent)
            buttonStart.addEventListener('click', ()=> startGame(difficult))
        })

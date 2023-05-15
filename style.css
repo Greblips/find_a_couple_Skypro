@@ -87,3 +87,8 @@ main{
     line-height: 32px;
     color: #FFFFFF;
 }
+
+.game-menu__difficult-btn_checked {
+    transform: scale(1.1);
+    outline-color: #0071a9;
+  }
