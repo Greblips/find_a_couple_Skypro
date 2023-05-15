@@ -41,7 +41,7 @@ export const EnterPage = () =>{
         chooseDifficult.forEach((el) => el.classList.remove('game-menu__difficult-btn_checked'));
         chooseButtonElement.classList.add('game-menu__difficult-btn_checked');
 
-           const difficult = Number(chooseButtonElement.textContent)
+           const difficult = chooseButtonElement.textContent
            buttonStart.addEventListener('click', ()=> startGame(difficult))
        })
    }

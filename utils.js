@@ -1,75 +1,37 @@
+import Deck from "./deck.js";
 
-export const duplicateArray= (array) => array.flatMap(i => [i,i])
+export const duplicateArray = (array) => array.flatMap(i => [i,i])
 
-export function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-    while (currentIndex != 0) {
-  
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
+ export function shuffle(sourceArray) {
+    for (var i = 0; i < sourceArray.length - 1; i++) {
+        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
 
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+        var temp = sourceArray[j];
+        sourceArray[j] = sourceArray[i];
+        sourceArray[i] = temp;
     }
-  
-    return array;
-  }
+    return sourceArray;
+}
 
 export const createIconsArray = (initialCount) =>{
 
-const cards = [
-    'A♠',
-    "6♠",
-    "7♠",
-    "8♠",
-    "9♠",
-    "10♠",
-    "J♠",
-    "Q♠",
-    "K♠",
-    "A♣",
-    "6♣",
-    "7♣",
-    "8♣",
-    "9♣",
-    "10♣",
-    "J♣",
-    "Q♣",
-    "K♣",
-    "A♥",
-    "6♥",
-    "7♥",
-    "8♥",
-    "9♥",
-    "10♥",
-    "J♥",
-    "Q♥",
-    "K♥",
-    "A♦",
-    "6♦",
-    "7♦",
-    "8♦",
-    "9♦",
-    "10♦",
-    "J♦",
-    "Q♦",
-    "K♦"
-    
-]
 
-//     let deck = new Deck();
+let deck = new Deck();
  
-//   deck.shuffle()
+  deck.shuffle()
+ 
+   duplicateArray (deck.cards)
 
-//  shuffle(cards)
+  console.log(deck.cards)
+
 
     switch (initialCount) {
-        case 1:
-            return   cards.slice(0,3);
-        case 2:
-            return  cards.slice(0,6);
-        case 3:
-            return  cards.slice(0,9);
+        case "1":
+            return   duplicateArray((deck.cards.slice(0,3)));
+        case "2":
+            return  duplicateArray((deck.cards.slice(0,6)));
+        case "3":
+            return    duplicateArray((deck.cards.slice(0,9)));
     
         default:
             break;
