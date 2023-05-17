@@ -40,9 +40,7 @@ class Card {
     this.value = value
   }
 
-  get color() {
-    return this.suit === "♣" || this.suit === "♠" ? "black" : "red"
-  }
+
 
 
 }

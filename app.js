@@ -1,7 +1,7 @@
 import { EnterPage } from "./gameMenu.js";
 
 
-const cardsApp = () =>{
+export const cardsApp = () =>{
    EnterPage();
 }
 

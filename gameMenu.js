@@ -3,7 +3,7 @@ import { startGame } from "./startGame.js";
 export const EnterPage = () =>{
     const title = document.createElement('h2');
     
-    const gameSection = document.querySelector('.game-section__container')
+    const gameSection = document.querySelector('.game-section-start__container')
 
     gameSection.innerHTML='';
     title.textContent = 'Выбери сложность';

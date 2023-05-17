@@ -1,41 +1,37 @@
 import Deck from "./deck.js";
 
-export const duplicateArray = (array) => array.flatMap(i => [i,i])
 
- export function shuffle(sourceArray) {
-    for (var i = 0; i < sourceArray.length - 1; i++) {
-        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
-
-        var temp = sourceArray[j];
-        sourceArray[j] = sourceArray[i];
-        sourceArray[i] = temp;
+export const duplicateArrayAndMix = (array) => {
+    const duplicateCards = array.flatMap((i) => [i, i]);
+    for (let i = 0; i < duplicateCards.length - 1; i++) {
+      let j = i + Math.floor(Math.random() * (duplicateCards.length - i));
+      let temp = duplicateCards[j];
+      duplicateCards[j] = duplicateCards[i];
+      duplicateCards[i] = temp;
     }
-    return sourceArray;
-}
+    return duplicateCards;
+  };
 
 export const createIconsArray = (initialCount) =>{
 
-
 let deck = new Deck();
+    deck.shuffle()
  
-  deck.shuffle()
- 
-   duplicateArray (deck.cards)
-
-  console.log(deck.cards)
-
 
     switch (initialCount) {
         case "1":
-            return   duplicateArray((deck.cards.slice(0,3)));
+            return  duplicateArrayAndMix((deck.cards.slice(0,3)));
         case "2":
-            return  duplicateArray((deck.cards.slice(0,6)));
+            return  duplicateArrayAndMix((deck.cards.slice(0,6)));
         case "3":
-            return    duplicateArray((deck.cards.slice(0,9)));
+            return  duplicateArrayAndMix((deck.cards.slice(0,9)));
     
         default:
             break;
     }
+
+
+    
    
 }
 

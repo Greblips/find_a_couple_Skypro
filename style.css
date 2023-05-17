@@ -28,7 +28,7 @@ main{
     overflow: auto;
  
 }
-.game-section__container{
+.game-section-start__container{
     margin: 0 auto;
     width: 480px;
     height: 460px;
@@ -92,3 +92,127 @@ main{
     transform: scale(1.1);
     outline-color: #0071a9;
   }
+
+.game-section-cards__container{
+    width: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.main__game_cardsBox{
+    width: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.game-table__card{
+    position: relative;
+}
+
+.card__face{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    border-radius: 4px;
+    width: 95px;
+    height: 133px;
+    position: relative;
+}
+
+.card__back {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95px;
+    height: 133px;
+    background: url('../img/back.png');
+    transform: perspective(600px) rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+
+
+.card__top{
+    font-family: "stratosskyengweb";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    position: absolute;
+    left: 10%;
+    top : 0%
+   }
+
+.card__suit{
+    width: 7px;
+}   
+
+.card__bottom{
+    font-family: "stratosskyengweb";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    position: absolute;
+    right: 10%;
+    bottom: 5%; 
+}
+
+.main__game_content {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    align-items: center;
+  }
+
+.main__game_content_button{
+    font-family: "stratosskyengweb";
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 246px;
+    height: 50px;
+    background: #7AC100;
+    border-radius: 12px;
+    border: none;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 32px;
+    color: #fff; 
+}
+
+.timer {
+    font-family: "StratosSkyengweb";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #fff;
+  }
+  
+  .timer__text {
+    display: flex;
+    justify-content: flex-end;
+    gap: 40%;
+    font-family: "StratosSkyengweb";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
