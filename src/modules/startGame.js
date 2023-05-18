@@ -75,7 +75,21 @@ export const startGame = (difficult) => {
         const cards = document.querySelectorAll('.card__back')
         for (const card of cards) {
             card.style.display = 'flex'
+            card.addEventListener('click',  () => {
+                card.style.display = 'none'
+            })
         }
     }
     setTimeout(() => closecards(), 5000)
+
+    // function opencards() {
+    //     const cardsO = document.querySelectorAll('.card__back')
+        
+    //     for (const card of cardsO) {
+    //         card.addEventListener('click',  () => {
+    //             card.style.display = 'none'
+    //         })
+    //     }
+    // }
+    //     opencards()
 }
