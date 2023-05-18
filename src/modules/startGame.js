@@ -1,4 +1,7 @@
 import { createIconsArray } from './utils.js'
+let firstCard = null
+let secondCard = null
+let clickable = true
 
 export const startGame = (difficult) => {
     const suitsBackground = {
@@ -77,5 +80,25 @@ export const startGame = (difficult) => {
             card.style.display = 'flex'
         }
     }
-    setTimeout(() => closecards(), 5000)
+    setTimeout(() => closecards(), 1000)
+
+    const allCards = document.querySelectorAll('.game-table__card')
+    allCards.forEach((card, index) =>
+        card.addEventListener('click', () => {
+            if (clickable == true && !card.classList.contains('succefully')) {
+                card.querySelector('.card__back').classList.remove('card__back')
+
+                if (firstCard === null) {
+                    firstCard = index
+                    console.log(firstCard)
+                } else {
+                    if (index != firstCard) {
+                        secondCard = index
+                        console.log(secondCard)
+                        clickable = false
+                    }
+                }
+            }
+        })
+    )
 }
