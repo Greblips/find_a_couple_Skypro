@@ -1,46 +1,43 @@
+import { createIconsArray } from './utils.js'
 
-import { createIconsArray,} from "./utils.js";
-
-
-export const startGame = (difficult) =>{
-
+export const startGame = (difficult) => {
     const suitsBackground = {
         '♠': 'spades.svg',
         '♣': 'clubs.svg',
         '♥': 'hearts.svg',
         '♦': 'diamonds.svg',
-    };
+    }
 
     const gameSection = document.querySelector('.game-section-start__container')
     const gameTable = document.querySelector('.game-section-cards__container')
-    const cardsBox =document.createElement('div')
+    const cardsBox = document.createElement('div')
     cardsBox.classList.add('cards__box')
     gameSection.style.display = 'none'
     let cardsIcons = createIconsArray(difficult)
 
- 
-
     const cardsHtml = cardsIcons
-    .map((card) => {
-      return `
+        .map((card) => {
+            return `
       
-      <div data-value=${card.value} data-suit=${card.suit} class="game-table__card" >
+      <div data-value=${card.value} data-suit=${
+                card.suit
+            } class="game-table__card" >
      
-          <div class="card__face" style="background: url(./img/${
+          <div class="card__face" style="background: url(./src/img/${
               suitsBackground[card.suit]
           }) center center no-repeat, rgb(255, 255, 255);">
          
               <div class="card__top">    
                   <div class="card__value">${card.value}
                   </div>
-                  <img class="card__suit" src="img/${
+                  <img class="card__suit" src="./src/img/${
                       suitsBackground[card.suit]
                   }" alt="suit">
               </div>
               <div class="card__bottom">    
                   <div class="card__value">${card.value}
                   </div>
-                  <img class="card__suit" src="img/${
+                  <img class="card__suit" src="./src/img/${
                       suitsBackground[card.suit]
                   }" alt="suit">
               </div>
@@ -51,11 +48,10 @@ export const startGame = (difficult) =>{
           
     </div>
      
-      `;
-    })
-    .join("");
+      `
+        })
+        .join('')
 
-    
     gameTable.innerHTML = `
     <div class="main__game_content">
         <div id="timer">
@@ -68,22 +64,18 @@ export const startGame = (difficult) =>{
     </div>
         <div class="main__game_cardsBox">
         ${cardsHtml}
-        </div> `;
+        </div> `
 
+    const restartBTn = document.querySelector('.main__game_content_button')
+    restartBTn.addEventListener('click', () => {
+        startGame(difficult)
+    })
 
- const restartBTn = document.querySelector('.main__game_content_button')
- restartBTn.addEventListener('click', ()=>{
-    startGame(difficult)
- })
-
-
-function closecards() {
-    const cards = document.querySelectorAll('.card__back')
-    for (const card of cards){
-        card.style.display = 'flex'
+    function closecards() {
+        const cards = document.querySelectorAll('.card__back')
+        for (const card of cards) {
+            card.style.display = 'flex'
+        }
     }
-    
-}
-  setTimeout(() => closecards(), 5000);
-
+    setTimeout(() => closecards(), 5000)
 }

@@ -1,0 +1,26 @@
+{
+    "name": "find_a_couple_skypro",
+    "version": "1.0.0",
+    "description": "Игра \"найди пару на JS\"",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier --write ./src/",
+        "lint:js": "eslint ./src/**/*.js",
+        "lint:css": "stylelint ./src/**/**.css"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^8.40.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "prettier": "^2.8.8"
+    },
+    "dependencies": {
+        "stylelint": "^15.6.2",
+        "stylelint-config-standard": "^33.0.0",
+        "stylelint-prettier": "^3.0.0",
+        "stylelint-scss": "^5.0.0"
+    }
+}
