@@ -25,10 +25,11 @@ export const startGame = (difficult) =>{
       return `
       
       <div data-value=${card.value} data-suit=${card.suit} class="game-table__card" >
-          <div class="card__back"></div>
+     
           <div class="card__face" style="background: url(./img/${
               suitsBackground[card.suit]
           }) center center no-repeat, rgb(255, 255, 255);">
+         
               <div class="card__top">    
                   <div class="card__value">${card.value}
                   </div>
@@ -43,8 +44,12 @@ export const startGame = (difficult) =>{
                       suitsBackground[card.suit]
                   }" alt="suit">
               </div>
+              
+              
           </div>
-      </div>
+          <div class="card__back"></div>
+          
+    </div>
      
       `;
     })
@@ -70,5 +75,15 @@ export const startGame = (difficult) =>{
  restartBTn.addEventListener('click', ()=>{
     startGame(difficult)
  })
+
+
+function closecards() {
+    const cards = document.querySelectorAll('.card__back')
+    for (const card of cards){
+        card.style.display = 'flex'
+    }
+    
+}
+  setTimeout(() => closecards(), 5000);
 
 }

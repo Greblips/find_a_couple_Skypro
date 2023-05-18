@@ -94,7 +94,7 @@ main{
   }
 
 .game-section-cards__container{
-    width: 650px;
+    width: 698px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -103,41 +103,36 @@ main{
 }
 
 .main__game_cardsBox{
-    width: 650px;
+    width: 698px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
-}
-
-.game-table__card{
+     gap: 1rem;
     position: relative;
 }
 
+.game-table__card{
+    display: flex;
+    position: relative;
+
+}
+
+
+
 .card__face{
+    position: absolute;
+    left: 0;
+    top:0;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #FFF;
+    background: url(./img/back.jpg);
     border-radius: 4px;
     width: 95px;
     height: 133px;
     position: relative;
-}
-
-.card__back {
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 95px;
-    height: 133px;
-    background: url('../img/back.png');
-    transform: perspective(600px) rotateY(180deg);
-    backface-visibility: hidden;
+    transition: 1s;
 }
 
 
@@ -145,13 +140,32 @@ main{
 .card__top{
     font-family: "stratosskyengweb";
     display: flex;
+    
     flex-direction: column;
     align-items: center;
     font-size: 24px;
     position: absolute;
     left: 10%;
-    top : 0%
+    top : 0%;
    }
+
+   .card__back{
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: none;
+    background: url(./img/back.jpg);
+    border-radius: 4px;
+    width: 95px;
+    height: 133px;
+    transform: rotateX('180deg');
+    
+    
+}
 
 .card__suit{
     width: 7px;
@@ -215,4 +229,3 @@ main{
     font-size: 16px;
     color: #ffffff;
   }
-
