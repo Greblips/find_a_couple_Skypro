@@ -46,4 +46,7 @@ export const EnterPage = () =>{
        })
    }
 
+
+
+
 }
