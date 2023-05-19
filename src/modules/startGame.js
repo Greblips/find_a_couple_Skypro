@@ -79,50 +79,117 @@ export const startGame = (difficult) => {
     }
     setTimeout(() => closecards(), 1000)
 
+    // function game() {
+    //     let firstCard = null
+    //     let secondCard = null
+    //     let clickable = true
+    //     const allCards = document.querySelectorAll('.game-table__card')
+    //     allCards.forEach((card, index) =>
+    //         card.addEventListener('click', () => {
+    //             if (
+    //                 clickable == true &&
+    //                 !card.classList.contains('succefully')
+    //             ) {
+    //                 card.querySelector('.card__back').classList.remove(
+    //                     'card__back'
+    //                 )
+
+    //                 if (firstCard === null) {
+    //                     firstCard = index
+    //                 } else {
+    //                     if (index != firstCard) {
+    //                         secondCard = index
+    //                         clickable = false
+    //                     }
+    //                 }
+    //                 if (
+    //                     firstCard != null &&
+    //                     secondCard != null &&
+    //                     firstCard != secondCard
+    //                 )
+    //                     if (
+    //                         (allCards[firstCard].dataset.value &&
+    //                             allCards[firstCard].dataset.suit) ===
+    //                         (allCards[secondCard].dataset.value &&
+    //                             allCards[secondCard].dataset.suit)
+    //                     ) {
+    //                         allCards[firstCard].classList.add('successfully')
+    //                         allCards[secondCard].classList.add('successfully')
+    //                         firstCard = null
+    //                         secondCard = null
+    //                         clickable = true
+    //                     } else {
+    //                         alert('Вы проиграли')
+    //                     }
+    //             }
+    //         })
+    //     )
+    // }
+
+    // game()
     function game() {
         let firstCard = null
         let secondCard = null
         let clickable = true
-        const allCards = document.querySelectorAll('.game-table__card')
+        let allCards = Array.from(
+            document.querySelectorAll('.game-table__card')
+        )
         allCards.forEach((card, index) =>
             card.addEventListener('click', () => {
                 if (
                     clickable == true &&
-                    !card.classList.contains('succefully')
+                    !card.classList.contains('successfully')
                 ) {
                     card.querySelector('.card__back').classList.remove(
                         'card__back'
                     )
 
-                    if (firstCard === null) {
+                    if (firstCard == null) {
                         firstCard = index
                     } else {
                         if (index != firstCard) {
                             secondCard = index
-                            console.log(secondCard)
                             clickable = false
                         }
                     }
+
                     if (
                         firstCard != null &&
                         secondCard != null &&
                         firstCard != secondCard
-                    )
+                    ) {
                         if (
-                            (allCards[firstCard].dataset.value &&
-                                allCards[firstCard].dataset.suit) ===
-                            (allCards[secondCard].dataset.value &&
-                                allCards[secondCard].dataset.suit)
+                            allCards[firstCard].dataset.suit ===
+                                allCards[secondCard].dataset.suit &&
+                            allCards[firstCard].dataset.value ===
+                                allCards[secondCard].dataset.value
                         ) {
-                            allCards[firstCard].classList.add('successfully')
-                            allCards[secondCard].classList.add('successfully')
-                            console.log(allCards[firstCard])
-                            firstCard = null
-                            secondCard = null
-                            clickable = true
+                            setTimeout(() => {
+                                console.log()
+                                allCards[firstCard].classList.add(
+                                    'successfully'
+                                )
+
+                                allCards[secondCard].classList.add(
+                                    'successfully'
+                                )
+
+                                firstCard = null
+                                secondCard = null
+                                clickable = true
+                                const arrSuccess = allCards.filter((item) =>
+                                    item.classList.contains('successfully')
+                                )
+                                allCards.length === arrSuccess.length
+                                    ? alert('Вы выиграли')
+                                    : false
+                            }, 100)
                         } else {
-                            alert('Вы проиграли')
+                            setTimeout(() => {
+                                alert('вы програли')
+                            }, 500)
                         }
+                    }
                 }
             })
         )
