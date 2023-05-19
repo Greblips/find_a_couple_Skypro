@@ -1,7 +1,4 @@
 import { createIconsArray } from './utils.js'
-let firstCard = null
-let secondCard = null
-let clickable = true
 
 export const startGame = (difficult) => {
     const suitsBackground = {
@@ -82,23 +79,54 @@ export const startGame = (difficult) => {
     }
     setTimeout(() => closecards(), 1000)
 
-    const allCards = document.querySelectorAll('.game-table__card')
-    allCards.forEach((card, index) =>
-        card.addEventListener('click', () => {
-            if (clickable == true && !card.classList.contains('succefully')) {
-                card.querySelector('.card__back').classList.remove('card__back')
+    function game() {
+        let firstCard = null
+        let secondCard = null
+        let clickable = true
+        const allCards = document.querySelectorAll('.game-table__card')
+        allCards.forEach((card, index) =>
+            card.addEventListener('click', () => {
+                if (
+                    clickable == true &&
+                    !card.classList.contains('succefully')
+                ) {
+                    card.querySelector('.card__back').classList.remove(
+                        'card__back'
+                    )
 
-                if (firstCard === null) {
-                    firstCard = index
-                    console.log(firstCard)
-                } else {
-                    if (index != firstCard) {
-                        secondCard = index
-                        console.log(secondCard)
-                        clickable = false
+                    if (firstCard === null) {
+                        firstCard = index
+                    } else {
+                        if (index != firstCard) {
+                            secondCard = index
+                            console.log(secondCard)
+                            clickable = false
+                        }
                     }
+                    if (
+                        firstCard != null &&
+                        secondCard != null &&
+                        firstCard != secondCard
+                    )
+                        if (
+                            (allCards[firstCard].dataset.value &&
+                                allCards[firstCard].dataset.suit) ===
+                            (allCards[secondCard].dataset.value &&
+                                allCards[secondCard].dataset.suit)
+                        ) {
+                            allCards[firstCard].classList.add('successfully')
+                            allCards[secondCard].classList.add('successfully')
+                            console.log(allCards[firstCard])
+                            firstCard = null
+                            secondCard = null
+                            clickable = true
+                        } else {
+                            alert('Вы проиграли')
+                        }
                 }
-            }
-        })
-    )
+            })
+        )
+    }
+
+    game()
 }
