@@ -23,21 +23,21 @@ export const startGame = (difficult) => {
                 card.suit
             } class="game-table__card" >
      
-          <div class="card__face" style="background: url(./src/img/${
+          <div class="card__face" style="background: url(./img/${
               suitsBackground[card.suit]
           }) center center no-repeat, rgb(255, 255, 255);">
          
               <div class="card__top">    
                   <div class="card__value">${card.value}
                   </div>
-                  <img class="card__suit" src="./src/img/${
+                  <img class="card__suit" src="./img/${
                       suitsBackground[card.suit]
                   }" alt="suit">
               </div>
               <div class="card__bottom">    
                   <div class="card__value">${card.value}
                   </div>
-                  <img class="card__suit" src="./src/img/${
+                  <img class="card__suit" src="./img/${
                       suitsBackground[card.suit]
                   }" alt="suit">
               </div>
@@ -77,56 +77,8 @@ export const startGame = (difficult) => {
             card.style.display = 'flex'
         }
     }
-    setTimeout(() => closecards(), 1000)
+    setTimeout(() => closecards(), 5000)
 
-    // function game() {
-    //     let firstCard = null
-    //     let secondCard = null
-    //     let clickable = true
-    //     const allCards = document.querySelectorAll('.game-table__card')
-    //     allCards.forEach((card, index) =>
-    //         card.addEventListener('click', () => {
-    //             if (
-    //                 clickable == true &&
-    //                 !card.classList.contains('succefully')
-    //             ) {
-    //                 card.querySelector('.card__back').classList.remove(
-    //                     'card__back'
-    //                 )
-
-    //                 if (firstCard === null) {
-    //                     firstCard = index
-    //                 } else {
-    //                     if (index != firstCard) {
-    //                         secondCard = index
-    //                         clickable = false
-    //                     }
-    //                 }
-    //                 if (
-    //                     firstCard != null &&
-    //                     secondCard != null &&
-    //                     firstCard != secondCard
-    //                 )
-    //                     if (
-    //                         (allCards[firstCard].dataset.value &&
-    //                             allCards[firstCard].dataset.suit) ===
-    //                         (allCards[secondCard].dataset.value &&
-    //                             allCards[secondCard].dataset.suit)
-    //                     ) {
-    //                         allCards[firstCard].classList.add('successfully')
-    //                         allCards[secondCard].classList.add('successfully')
-    //                         firstCard = null
-    //                         secondCard = null
-    //                         clickable = true
-    //                     } else {
-    //                         alert('Вы проиграли')
-    //                     }
-    //             }
-    //         })
-    //     )
-    // }
-
-    // game()
     function game() {
         let firstCard = null
         let secondCard = null
@@ -164,26 +116,21 @@ export const startGame = (difficult) => {
                             allCards[firstCard].dataset.value ===
                                 allCards[secondCard].dataset.value
                         ) {
-                            setTimeout(() => {
-                                console.log()
-                                allCards[firstCard].classList.add(
-                                    'successfully'
-                                )
+                            allCards[firstCard].classList.add('successfully')
 
-                                allCards[secondCard].classList.add(
-                                    'successfully'
-                                )
+                            allCards[secondCard].classList.add('successfully')
 
-                                firstCard = null
-                                secondCard = null
-                                clickable = true
-                                const arrSuccess = allCards.filter((item) =>
-                                    item.classList.contains('successfully')
-                                )
-                                allCards.length === arrSuccess.length
-                                    ? alert('Вы выиграли')
-                                    : false
-                            }, 100)
+                            firstCard = null
+                            secondCard = null
+                            clickable = true
+                            const arrSuccess = allCards.filter((item) =>
+                                item.classList.contains('successfully')
+                            )
+                            allCards.length === arrSuccess.length
+                                ? setTimeout(() => {
+                                      alert('вы выиграли')
+                                  }, 500)
+                                : false
                         } else {
                             setTimeout(() => {
                                 alert('вы програли')
