@@ -1,4 +1,5 @@
 import { createIconsArray } from './utils.js'
+import { cardsApp } from '../app.js'
 
 export const startGame = (difficult) => {
     const suitsBackground = {
@@ -92,10 +93,10 @@ export const startGame = (difficult) => {
         } else {
             coutDownEl.innerHTML = `00.0${timer}`
         }
-    }, 1000)
+    }, 100)
 
     // таймер
-    function timeGame() {
+    function timerGame() {
         timer = 0
 
         coutDownEl.textContent = '00.00'
@@ -105,18 +106,43 @@ export const startGame = (difficult) => {
             const seconds = ('00' + (timer % 60)).slice(-2)
             coutDownEl.textContent = `${minutes}.${seconds}`
         }
-        window.timeGame = setInterval(setTime, 1000)
+        window.timeGame = setInterval(setTime, 100)
         setTimeout(clearInterval, 600000, window.timeGame)
     }
 
+    function isWinner() {
+        clearInterval(window.timeGame)
+        let popupBg = document.querySelector('main')
+        popupBg.classList.add('active')
+        gameSection.style.display = 'block'
+        const timerResult = coutDownEl.textContent
+        console.log(timerResult)
+
+        gameSection.classList.add('popup')
+        gameSection.innerHTML = `<div class="game-section-start__container">
+        <img class="timer_result-img" src="./img/win.svg" alt="win" />
+        <h2 class="game-menu_result-title">Вы проиграли</h2>
+        <p class="game-menu__subTitle">Затраченное время</h2>
+        <p class='timer_result'>${timerResult}</p>
+        
+        <button class="game-menu__start-btn">Играть снова</button></div>
+        `
+        const restartBTn = document.querySelector('.game-menu__start-btn')
+        restartBTn.addEventListener('click', () => {
+            gameTable.textContent = `d`
+            cardsApp()
+        })
+    }
+
     function game() {
+        timerGame()
         let firstCard = null
         let secondCard = null
         let clickable = true
         let allCards = Array.from(
             document.querySelectorAll('.game-table__card')
         )
-        timeGame()
+
         allCards.forEach((card, index) =>
             card.addEventListener('click', () => {
                 if (
@@ -158,14 +184,11 @@ export const startGame = (difficult) => {
                                 item.classList.contains('successfully')
                             )
                             allCards.length === arrSuccess.length
-                                ? alert('вы выиграли')
+                                ? console.log('вы выиграли')
                                 : //   clearInterval(window.timeGame)
                                   false
                         } else {
-                            console.log('вы програли')
-
-                            clearInterval(window.timeGame)
-                            // gameSection.style.display = 'block'
+                            isWinner()
                         }
                     }
                 }
