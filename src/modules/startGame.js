@@ -71,13 +71,43 @@ export const startGame = (difficult) => {
         startGame(difficult)
     })
 
+    // Скрытие карт
     function closecards() {
         const cards = document.querySelectorAll('.card__back')
         for (const card of cards) {
             card.style.display = 'flex'
         }
     }
-    setTimeout(() => closecards(), 5000)
+
+    // Скрытие карт через 5 секунд и запуск игры
+    const coutDownEl = document.querySelector('.timer')
+    let timer = 5
+    coutDownEl.textContent = '00.05'
+    let id = setInterval(function () {
+        timer--
+        if (timer === 0) {
+            clearInterval(id)
+            closecards()
+            game()
+        } else {
+            coutDownEl.innerHTML = `00.0${timer}`
+        }
+    }, 1000)
+
+    // таймер
+    function timeGame() {
+        timer = 0
+
+        coutDownEl.textContent = '00.00'
+        function setTime() {
+            timer++
+            const minutes = ('00' + Math.floor(timer / 60)).slice(-2)
+            const seconds = ('00' + (timer % 60)).slice(-2)
+            coutDownEl.textContent = `${minutes}.${seconds}`
+        }
+        window.timeGame = setInterval(setTime, 1000)
+        setTimeout(clearInterval, 600000, window.timeGame)
+    }
 
     function game() {
         let firstCard = null
@@ -86,6 +116,7 @@ export const startGame = (difficult) => {
         let allCards = Array.from(
             document.querySelectorAll('.game-table__card')
         )
+        timeGame()
         allCards.forEach((card, index) =>
             card.addEventListener('click', () => {
                 if (
@@ -127,20 +158,18 @@ export const startGame = (difficult) => {
                                 item.classList.contains('successfully')
                             )
                             allCards.length === arrSuccess.length
-                                ? setTimeout(() => {
-                                      alert('вы выиграли')
-                                  }, 500)
-                                : false
+                                ? alert('вы выиграли')
+                                : //   clearInterval(window.timeGame)
+                                  false
                         } else {
-                            setTimeout(() => {
-                                alert('вы програли')
-                            }, 500)
+                            console.log('вы програли')
+
+                            clearInterval(window.timeGame)
+                            // gameSection.style.display = 'block'
                         }
                     }
                 }
             })
         )
     }
-
-    game()
 }
