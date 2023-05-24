@@ -1,6 +1,13 @@
 import { createIconsArray } from './utils.js'
 import { cardsApp } from '../app.js'
 
+declare global {
+    interface Window {
+        // ⚠️ notice that "Window" is capitalized here
+        timeGame: any
+    }
+}
+
 export const startGame = (difficult) => {
     const suitsBackground = {
         '♠': 'spades.svg',
@@ -10,8 +17,12 @@ export const startGame = (difficult) => {
     }
 
     // ренедер элементов
-    const gameSection = document.querySelector('.game-section-start__container')
-    const gameTable = document.querySelector('.game-section-cards__container')
+    const gameSection = document.querySelector(
+        '.game-section-start__container'
+    ) as HTMLElement
+    const gameTable = document.querySelector(
+        '.game-section-cards__container'
+    ) as HTMLElement
     gameTable.style.opacity = '1'
     gameSection.style.display = 'none'
     let cardsIcons = createIconsArray(difficult)
@@ -69,20 +80,20 @@ export const startGame = (difficult) => {
         </div> `
 
     const restartBTn = document.querySelector('.main__game_content_button')
-    restartBTn.addEventListener('click', () => {
+    restartBTn!.addEventListener('click', () => {
         startGame(difficult)
     })
 
     // Скрытие карт
     function closecards() {
         const cards = document.querySelectorAll('.card__back')
-        for (const card of cards) {
+        for (const card of cards as any) {
             card.style.display = 'flex'
         }
     }
 
     // Скрытие карт через 5 секунд и запуск игры
-    const coutDownEl = document.querySelector('.timer')
+    const coutDownEl = document.querySelector('.timer') as HTMLElement
     let timer = 5
     coutDownEl.textContent = '00.05'
     let id = setInterval(function () {
@@ -133,7 +144,7 @@ export const startGame = (difficult) => {
             </div>`
 
         const restartBTn = document.querySelector('.game-menu__start-btn')
-        restartBTn.addEventListener('click', () => {
+        restartBTn!.addEventListener('click', () => {
             cardsApp()
         })
     }

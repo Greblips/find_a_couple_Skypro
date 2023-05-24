@@ -1,8 +1,8 @@
 import './css/style.css'
-import { EnterPage } from './modules/gameMenu.js'
+import { enterPage } from './modules/gameMenu'
 
 export const cardsApp = () => {
-    EnterPage()
+    enterPage()
 }
 
 cardsApp()
