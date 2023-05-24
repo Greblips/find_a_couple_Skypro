@@ -12,8 +12,7 @@ export const startGame = (difficult) => {
     // ренедер элементов
     const gameSection = document.querySelector('.game-section-start__container')
     const gameTable = document.querySelector('.game-section-cards__container')
-    const cardsBox = document.createElement('div')
-    cardsBox.classList.add('cards__box')
+    gameTable.style.opacity = '1'
     gameSection.style.display = 'none'
     let cardsIcons = createIconsArray(difficult)
 
@@ -95,7 +94,7 @@ export const startGame = (difficult) => {
         } else {
             coutDownEl.innerHTML = `00.0${timer}`
         }
-    }, 100)
+    }, 1000)
 
     // таймер
     function timerGame() {
@@ -108,7 +107,7 @@ export const startGame = (difficult) => {
             const seconds = ('00' + (timer % 60)).slice(-2)
             coutDownEl.textContent = `${minutes}.${seconds}`
         }
-        window.timeGame = setInterval(setTime, 100)
+        window.timeGame = setInterval(setTime, 1000)
         setTimeout(clearInterval, 600000, window.timeGame)
     }
 
