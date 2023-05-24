@@ -9,6 +9,7 @@ export const startGame = (difficult) => {
         '♦': 'diamonds.svg',
     }
 
+    // ренедер элементов
     const gameSection = document.querySelector('.game-section-start__container')
     const gameTable = document.querySelector('.game-section-cards__container')
     const cardsBox = document.createElement('div')
@@ -55,6 +56,7 @@ export const startGame = (difficult) => {
 
     gameTable.innerHTML = `
     <div class="main__game_content">
+    <div class="main__game_background" 
         <div id="timer">
             <div class="timer__text">
                 <span class='timer__text_item'>min</span> <span class='timer__text_item'>sek</span>
@@ -110,35 +112,40 @@ export const startGame = (difficult) => {
         setTimeout(clearInterval, 600000, window.timeGame)
     }
 
-    function isWinner() {
+    // вывод экрана окончания игры относительно результата
+    function isWinner(winner) {
         clearInterval(window.timeGame)
-        let popupBg = document.querySelector('main')
-        popupBg.classList.add('active')
         gameSection.style.display = 'block'
         const timerResult = coutDownEl.textContent
-        console.log(timerResult)
-
+        gameTable.style.opacity = '0.3'
         gameSection.classList.add('popup')
+
         gameSection.innerHTML = `<div class="game-section-start__container">
-        <img class="timer_result-img" src="./img/win.svg" alt="win" />
-        <h2 class="game-menu_result-title">Вы проиграли</h2>
-        <p class="game-menu__subTitle">Затраченное время</h2>
-        <p class='timer_result'>${timerResult}</p>
-        
-        <button class="game-menu__start-btn">Играть снова</button></div>
-        `
+            <img class="timer_result-img" src="./img/${
+                winner ? 'win.svg" alt="win"' : 'lose.svg" alt="lose"'
+            }  >
+            
+            <h2 class="game-menu_result-title">${
+                winner ? 'Вы выиграли' : 'Вы проиграли'
+            }</h2>
+            <p class="game-menu__subTitle">Затраченное время</h2>
+            <p class='timer_result'>${timerResult}</p>
+            <button class="game-menu__start-btn">Играть снова</button>
+            </div>`
+
         const restartBTn = document.querySelector('.game-menu__start-btn')
         restartBTn.addEventListener('click', () => {
-            gameTable.textContent = `d`
             cardsApp()
         })
     }
 
+    //Игра
     function game() {
         timerGame()
         let firstCard = null
         let secondCard = null
         let clickable = true
+        let winner = false
         let allCards = Array.from(
             document.querySelectorAll('.game-table__card')
         )
@@ -183,12 +190,12 @@ export const startGame = (difficult) => {
                             const arrSuccess = allCards.filter((item) =>
                                 item.classList.contains('successfully')
                             )
-                            allCards.length === arrSuccess.length
-                                ? console.log('вы выиграли')
-                                : //   clearInterval(window.timeGame)
-                                  false
+                            if (allCards.length === arrSuccess.length) {
+                                winner = true
+                                isWinner(winner)
+                            }
                         } else {
-                            isWinner()
+                            isWinner(winner)
                         }
                     }
                 }

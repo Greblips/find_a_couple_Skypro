@@ -17,7 +17,7 @@ export const createIconsArray = (initialCount) => {
 
     switch (initialCount) {
         case '1':
-            return duplicateArrayAndMix(deck.cards.slice(0, 3))
+            return duplicateArrayAndMix(deck.cards.slice(0, 2))
         case '2':
             return duplicateArrayAndMix(deck.cards.slice(0, 6))
         case '3':
