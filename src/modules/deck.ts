@@ -2,8 +2,8 @@ const SUITS = ['♠', '♣', '♥', '♦']
 const VALUES = ['A', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
 export default class Deck {
-    // cards: Card
-    // cards: { value: string; suit: string }[]
+    cards: any = Card
+
     constructor(cards = freshDeck()) {
         this.cards = cards
     }
@@ -23,6 +23,8 @@ export default class Deck {
 }
 
 class Card {
+    suit: string
+    value: string
     constructor(suit, value) {
         this.suit = suit
         this.value = value
