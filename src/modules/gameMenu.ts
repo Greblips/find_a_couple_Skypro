@@ -1,4 +1,4 @@
-import { startGame } from './startGame.js'
+import { startGame } from './startGame'
 
 export const enterPage = () => {
     const gameSection = document.querySelector('.game-section-start__container')

@@ -1,5 +1,5 @@
-import { createIconsArray } from './utils.js'
-import { cardsApp } from '../app.js'
+import { createIconsArray } from './utils'
+import { cardsApp } from '../app'
 
 declare global {
     interface Window {
@@ -156,7 +156,7 @@ export const startGame = (difficult) => {
         let secondCard = null
         let clickable = true
         let winner = false
-        let allCards = Array.from(
+        const allCards: any = Array.from(
             document.querySelectorAll('.game-table__card')
         )
 
