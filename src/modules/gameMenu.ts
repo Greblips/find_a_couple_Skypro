@@ -15,19 +15,6 @@ export const enterPage = () => {
         '.game-menu__difficult-btn'
     )
 
-    // for (const chooseButtonElement of chooseDifficult) {
-    //     chooseButtonElement.addEventListener('click', () => {
-    //         chooseDifficult.forEach((el) =>
-    //             el.classList.remove('game-menu__difficult-btn_checked')
-    //         )
-    //         chooseButtonElement.classList.add(
-    //             'game-menu__difficult-btn_checked'
-    //         )
-    //         const buttonStart = document.querySelector('.game-menu__start-btn')
-    //         const difficult = chooseButtonElement.textContent
-    //         buttonStart.addEventListener('click', () => startGame(difficult))
-    //     })
-    // }
     chooseDifficult.forEach((element) =>
         element.addEventListener('click', () => {
             chooseDifficult.forEach((el) =>

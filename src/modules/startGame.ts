@@ -120,6 +120,7 @@ export const startGame = (difficult) => {
         }
         window.timeGame = setInterval(setTime, 1000)
         setTimeout(clearInterval, 600000, window.timeGame)
+        console.log(typeof window.timeGame)
     }
 
     // вывод экрана окончания игры относительно результата

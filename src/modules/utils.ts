@@ -13,7 +13,6 @@ export const duplicateArrayAndMix = (array) => {
 
 export const createIconsArray = (initialCount) => {
     let deck = new Deck()
-    console.log(deck)
     deck.shuffle()
 
     switch (initialCount) {
