@@ -1,11 +1,11 @@
 @font-face {
     font-family: stratosskyengweb;
-    src: url('./src/fonts/stratosskyengweb-regular.woff2');
+    src: url('../fonts/stratosskyengweb-regular.woff2');
 }
 
 body {
     font-family: 'stratosskyengweb';
-    background-color: #004980;
+    overflow-x: hidden;
 }
 
 * {
@@ -25,6 +25,12 @@ main {
     align-content: center;
     justify-content: center;
     overflow: auto;
+    transition: 0.5s all;
+    background-color: #004980;
+}
+main.active {
+    /* opacity: 0.8; */
+    pointer-events: all;
 }
 .game-section-start__container {
     margin: 0 auto;
@@ -39,7 +45,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 208px;
+    /* width: 208px; */
     height: 96px;
     text-align: center;
     font-weight: 400;
@@ -111,6 +117,10 @@ main {
     position: relative;
 }
 
+.successfully {
+    opacity: 0.3;
+}
+
 .card__face {
     position: absolute;
     left: 0;
@@ -118,7 +128,7 @@ main {
     width: 100%;
     height: 100%;
     display: flex;
-    background: url(./img/back.jpg);
+    background: url(../img/back.jpg);
     border-radius: 4px;
     width: 95px;
     height: 133px;
@@ -147,7 +157,7 @@ main {
     height: 100%;
     display: flex;
     display: none;
-    background: url(./src/img/back.jpg);
+    background: url(../img/back.jpg);
     border-radius: 4px;
     width: 95px;
     height: 133px;
@@ -215,4 +225,62 @@ main {
     font-weight: 400;
     font-size: 16px;
     color: #ffffff;
+}
+
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+.game-menu__subTitle {
+    display: flex;
+    justify-content: center;
+    font-family: 'StratosSkyengweb';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    /* identical to box height, or 133% */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #000000;
+}
+
+.timer_result-img {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game-menu_result-title {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 400;
+    line-height: 48px;
+    color: #004980;
+    font-size: 2.5rem;
+}
+.game-menu__subTitle {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.timer_result {
+    margin-top: 1rem;
+    font-family: 'StratosSkyengweb';
+    display: flex;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #000000;
 }
