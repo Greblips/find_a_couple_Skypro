@@ -80,7 +80,7 @@ export const startGame = (difficult) => {
         </div> `;
 
     const restartBTn = document.querySelector('.main__game_content_button');
-    restartBTn!.addEventListener('click', () => {
+    restartBTn.addEventListener('click', () => {
         startGame(difficult);
     });
 
@@ -145,7 +145,7 @@ export const startGame = (difficult) => {
             </div>`;
 
         const restartBTn = document.querySelector('.game-menu__start-btn');
-        restartBTn!.addEventListener('click', () => {
+        restartBTn.addEventListener('click', () => {
             cardsApp();
         });
     }
@@ -157,7 +157,7 @@ export const startGame = (difficult) => {
         let secondCard: number | null = null;
         let clickable = true;
         let winner = false;
-        const allCards: any = Array.from(
+        const allCards: Array<HTMLElement> = Array.from(
             document.querySelectorAll('.game-table__card')
         );
 

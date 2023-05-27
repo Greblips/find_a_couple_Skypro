@@ -5,7 +5,7 @@ export const enterPage = () => {
         '.game-section-start__container'
     ) as HTMLElement;
 
-    gameSection!.innerHTML = `<div class="game-section-start__container">
+    gameSection.innerHTML = `<div class="game-section-start__container">
         <h2 class="game-menu__title">Выбери <br>сложность</h2>
         <button class="game-menu__difficult-btn">1</button>
         <button class="game-menu__difficult-btn">2</button>
@@ -27,7 +27,7 @@ export const enterPage = () => {
                 '.game-menu__start-btn'
             ) as HTMLElement;
 
-            buttonStart!.addEventListener('click', () => {
+            buttonStart.addEventListener('click', () => {
                 startGame(element.textContent);
             });
         })

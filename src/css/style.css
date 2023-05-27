@@ -231,21 +231,6 @@ main.active {
     z-index: 4;
 }
 
-.game-menu__subTitle {
-    display: flex;
-    justify-content: center;
-    font-family: StratosSkyengweb;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 32px;
-
-    /* identical to box height, or 133% */
-
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    color: #000;
-}
-
 .timer_result-img {
     margin: 0 auto;
     display: flex;
@@ -274,14 +259,9 @@ main.active {
     font-size: 24px;
     line-height: 32px;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
     align-items: center;
     margin-top: 2rem;
     color: #000;
-}
-
-.game-menu__subTitle {
 }
 
 .timer_result {

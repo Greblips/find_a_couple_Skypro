@@ -4,12 +4,14 @@
     "description": "Игра \"найди пару на JS\"",
     "main": "app.js",
     "scripts": {
-        "lint": "eslint ./src/**/*.ts",
+        "lint:ts": "eslint ./src/**/*.ts",
         "format": "prettier --write ./src/",
         "lint:js": "eslint ./src/**/*.js",
         "lint:css": "stylelint ./src/css/**/**.css",
         "build": "cross-env NODE_ENV=production webpack",
-        "start": "webpack-dev-server --open"
+        "start": "webpack-dev-server --open",
+        "prepare": "husky install",
+        "lint": "npm run lint:css && npm run lint:ts"
     },
     "author": "",
     "license": "ISC",
@@ -24,6 +26,7 @@
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
         "html-webpack-plugin": "^5.5.1",
+        "husky": "^8.0.3",
         "mini-css-extract-plugin": "^2.7.6",
         "prettier": "^2.8.8",
         "stylelint": "^14.8.2",
