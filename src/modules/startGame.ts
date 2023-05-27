@@ -25,7 +25,7 @@ export const startGame = (difficult) => {
     ) as HTMLElement;
     gameTable.style.opacity = '1';
     gameSection.style.display = 'none';
-    let cardsIcons = createIconsArray(difficult);
+    const cardsIcons = createIconsArray(difficult);
 
     const cardsHtml = cardsIcons
         .map((card) => {
@@ -86,7 +86,8 @@ export const startGame = (difficult) => {
 
     // Скрытие карт
     function closecards() {
-        const cards: any = document.querySelectorAll('.card__back');
+        const cards: NodeListOf<HTMLElement> =
+            document.querySelectorAll('.card__back');
         for (const card of cards) {
             card.style.display = 'flex';
         }
@@ -96,7 +97,7 @@ export const startGame = (difficult) => {
     const coutDownEl = document.querySelector('.timer') as HTMLElement;
     let timer = 5;
     coutDownEl.textContent = '00.05';
-    let id = setInterval(function () {
+    const id = setInterval(function () {
         timer--;
         if (timer === 0) {
             clearInterval(id);
@@ -149,43 +150,42 @@ export const startGame = (difficult) => {
         });
     }
 
-    interface Person {}
-
     //Игра
     function game() {
         timerGame();
-        let firstCard = null;
-        let secondCard = null;
+        let firstCard: number | null = null;
+        let secondCard: number | null = null;
         let clickable = true;
         let winner = false;
         const allCards: any = Array.from(
             document.querySelectorAll('.game-table__card')
         );
+
         console.log(allCards);
 
         allCards.forEach((card, index) =>
             card.addEventListener('click', () => {
                 if (
-                    clickable == true &&
+                    clickable === true &&
                     !card.classList.contains('successfully')
                 ) {
                     card.querySelector('.card__back').classList.remove(
                         'card__back'
                     );
 
-                    if (firstCard == null) {
+                    if (firstCard === null) {
                         firstCard = index;
                     } else {
-                        if (index != firstCard) {
+                        if (index !== firstCard) {
                             secondCard = index;
                             clickable = false;
                         }
                     }
 
                     if (
-                        firstCard != null &&
-                        secondCard != null &&
-                        firstCard != secondCard
+                        firstCard !== null &&
+                        secondCard !== null &&
+                        firstCard !== secondCard
                     ) {
                         if (
                             allCards[firstCard].dataset.suit ===
@@ -203,6 +203,7 @@ export const startGame = (difficult) => {
                             const arrSuccess = allCards.filter((item) =>
                                 item.classList.contains('successfully')
                             );
+                            console.log(arrSuccess);
                             if (allCards.length === arrSuccess.length) {
                                 winner = true;
                                 isWinner(winner);

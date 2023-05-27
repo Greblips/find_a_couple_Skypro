@@ -1,8 +1,8 @@
-import './css/style.css'
-import { enterPage } from './modules/gameMenu'
+import './css/style.css';
+import { enterPage } from './modules/gameMenu';
 
 export const cardsApp = () => {
-    enterPage()
-}
+    enterPage();
+};
 
-cardsApp()
+cardsApp();
