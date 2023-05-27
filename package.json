@@ -16,7 +16,7 @@
     },
     "jest": {
         "transform": {
-            "^.+\\.(ts|tsx)$": "babel-jest"
+            "^.+\\.(js|ts|tsx)$": "babel-jest"
         },
         "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.js?$",
         "moduleFileExtensions": [
