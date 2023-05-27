@@ -1,10 +1,13 @@
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+/* stylelint-disable selector-class-pattern */
+
 @font-face {
     font-family: stratosskyengweb;
     src: url('../fonts/stratosskyengweb-regular.woff2');
 }
 
 body {
-    font-family: 'stratosskyengweb';
+    font-family: stratosskyengweb;
     overflow-x: hidden;
 }
 
@@ -28,10 +31,12 @@ main {
     transition: 0.5s all;
     background-color: #004980;
 }
+
 main.active {
     /* opacity: 0.8; */
     pointer-events: all;
 }
+
 .game-section-start__container {
     margin: 0 auto;
     width: 480px;
@@ -41,10 +46,11 @@ main.active {
 }
 
 .game-menu__title {
-    margin: 0 auto 1.75rem auto;
+    margin: 0 auto 1.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
+
     /* width: 208px; */
     height: 96px;
     text-align: center;
@@ -56,11 +62,11 @@ main.active {
 }
 
 .game-menu__difficult-btn {
-    font-family: 'stratosskyengweb';
+    font-family: stratosskyengweb;
     cursor: pointer;
     margin-top: 3rem;
     margin-left: 2.75rem;
-    background: #ffffff;
+    background: #fff;
     border-radius: 12px;
     width: 98px;
     height: 98px;
@@ -71,10 +77,11 @@ main.active {
     line-height: 72px;
     color: #0080c1;
 }
+
 .game-menu__start-btn {
-    font-family: 'stratosskyengweb';
+    font-family: stratosskyengweb;
     cursor: pointer;
-    margin: 4.2rem auto 0 auto;
+    margin: 4.2rem auto 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,7 +93,7 @@ main.active {
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 32px;
-    color: #ffffff;
+    color: #fff;
 }
 
 .game-menu__difficult-btn_checked {
@@ -122,13 +129,8 @@ main.active {
 }
 
 .card__face {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
-    background: url(../img/back.jpg);
+    background: url('../img/back.jpg');
     border-radius: 4px;
     width: 95px;
     height: 133px;
@@ -137,9 +139,8 @@ main.active {
 }
 
 .card__top {
-    font-family: 'stratosskyengweb';
+    font-family: stratosskyengweb;
     display: flex;
-
     flex-direction: column;
     align-items: center;
     font-size: 24px;
@@ -153,11 +154,8 @@ main.active {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
     display: none;
-    background: url(../img/back.jpg);
+    background: url('../img/back.jpg');
     border-radius: 4px;
     width: 95px;
     height: 133px;
@@ -169,7 +167,7 @@ main.active {
 }
 
 .card__bottom {
-    font-family: 'stratosskyengweb';
+    font-family: stratosskyengweb;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,16 +180,14 @@ main.active {
 .main__game_content {
     display: flex;
     width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 40px;
     align-items: center;
 }
 
 .main__game_content_button {
-    font-family: 'stratosskyengweb';
+    font-family: stratosskyengweb;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -208,7 +204,7 @@ main.active {
 }
 
 .timer {
-    font-family: 'StratosSkyengweb';
+    font-family: StratosSkyengweb;
     font-style: normal;
     font-weight: 400;
     font-size: 64px;
@@ -220,11 +216,11 @@ main.active {
     display: flex;
     justify-content: flex-end;
     gap: 40%;
-    font-family: 'StratosSkyengweb';
+    font-family: StratosSkyengweb;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #ffffff;
+    color: #fff;
 }
 
 .popup {
@@ -234,19 +230,20 @@ main.active {
     transform: translate(-50%, -50%);
     z-index: 4;
 }
+
 .game-menu__subTitle {
     display: flex;
     justify-content: center;
-    font-family: 'StratosSkyengweb';
+    font-family: StratosSkyengweb;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 32px;
+
     /* identical to box height, or 133% */
 
     font-feature-settings: 'pnum' on, 'lnum' on;
-
-    color: #000000;
+    color: #000;
 }
 
 .timer_result-img {
@@ -255,6 +252,7 @@ main.active {
     justify-content: center;
     align-items: center;
 }
+
 .game-menu_result-title {
     margin: 0 auto;
     display: flex;
@@ -266,21 +264,34 @@ main.active {
     color: #004980;
     font-size: 2.5rem;
 }
+
 .game-menu__subTitle {
+    display: flex;
+    justify-content: center;
+    font-family: StratosSkyengweb;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+    color: #000;
 }
+
+.game-menu__subTitle {
+}
+
 .timer_result {
     margin-top: 1rem;
-    font-family: 'StratosSkyengweb';
+    font-family: StratosSkyengweb;
     display: flex;
     justify-content: center;
     font-style: normal;
     font-weight: 400;
     font-size: 64px;
     line-height: 72px;
-    color: #000000;
+    color: #000;
 }

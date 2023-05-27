@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
-        "lib": ["DOM", "ES2019"],
+        "lib": ["es5", "es6", "DOM", "dom.iterable"],
         "strict": true, // Включает все жесткие проверки типов
         "outDir": "./dist/",
         "noImplicitAny": false,
         "module": "es6",
-        "target": "es5",
+        "target": "es6",
         "allowJs": true,
         "moduleResolution": "node"
     }

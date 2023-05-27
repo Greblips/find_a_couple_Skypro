@@ -6,7 +6,7 @@
     "scripts": {
         "format": "prettier --write ./src/",
         "lint:js": "eslint ./src/**/*.js",
-        "lint:css": "stylelint ./src/**/**.css",
+        "lint:css": "stylelint ./src/css/**/**.css",
         "build": "cross-env NODE_ENV=production webpack",
         "start": "webpack-dev-server --open"
     },
@@ -23,16 +23,15 @@
         "html-webpack-plugin": "^5.5.1",
         "mini-css-extract-plugin": "^2.7.6",
         "prettier": "^2.8.8",
+        "stylelint": "^14.8.2",
+        "stylelint-config-prettier": "^9.0.3",
+        "stylelint-config-standard": "^25.0.0",
+        "stylelint-prettier": "^2.0.0",
+        "stylelint-scss": "^5.0.0",
         "ts-loader": "^9.4.3",
         "typescript": "^5.0.4",
         "webpack": "^5.83.1",
         "webpack-cli": "^5.1.1",
         "webpack-dev-server": "^4.15.0"
-    },
-    "dependencies": {
-        "stylelint": "^15.6.2",
-        "stylelint-config-standard": "^33.0.0",
-        "stylelint-prettier": "^3.0.0",
-        "stylelint-scss": "^5.0.0"
     }
 }
