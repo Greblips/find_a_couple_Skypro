@@ -11,6 +11,16 @@ export const duplicateArrayAndMix = (array) => {
     return duplicateCards;
 };
 
+const testDeck = new Deck();
+testDeck.shuffle();
+const result = testDeck;
+
+console.log(testDeck.cards[0]);
+
+// // Prepare
+const controlDeck = new Deck();
+console.log(controlDeck.cards[0]);
+
 export const createIconsArray = (initialCount) => {
     const deck = new Deck();
 
@@ -18,7 +28,6 @@ export const createIconsArray = (initialCount) => {
 
     const controlDeck = new Deck();
     controlDeck.shuffle();
-    console.log(controlDeck.cards[3]);
 
     switch (initialCount) {
         case '1':
