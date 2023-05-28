@@ -1,4 +1,4 @@
-import Deck from './deck';
+import { Deck } from './deck';
 
 export const duplicateArrayAndMix = (array) => {
     const duplicateCards = array.flatMap((i) => [i, i]);
@@ -13,7 +13,12 @@ export const duplicateArrayAndMix = (array) => {
 
 export const createIconsArray = (initialCount) => {
     const deck = new Deck();
+
     deck.shuffle();
+
+    const controlDeck = new Deck();
+    controlDeck.shuffle();
+    console.log(controlDeck.cards[3]);
 
     switch (initialCount) {
         case '1':

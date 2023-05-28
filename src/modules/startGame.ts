@@ -161,8 +161,6 @@ export const startGame = (difficult) => {
             document.querySelectorAll('.game-table__card')
         );
 
-        console.log(allCards);
-
         allCards.forEach((card, index) =>
             card.addEventListener('click', () => {
                 if (
