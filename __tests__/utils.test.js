@@ -3,8 +3,8 @@
 import { Deck } from '../src/modules/deck.ts';
 import { duplicateArrayAndMix } from '../src/modules/utils.ts';
 
-describe('Проверяет наличие 36 карт в колоде', () => {
-    it('should have 36 cards', () => {
+describe('Сколько карт в колоде', () => {
+    it('Должно быть 36 карт', () => {
         // Prepare
         const expected = 36;
         // Action
