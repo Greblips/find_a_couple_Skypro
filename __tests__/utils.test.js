@@ -1,3 +1,5 @@
+// few tests
+
 import { Deck } from '../src/modules/deck.ts';
 import { duplicateArrayAndMix } from '../src/modules/utils.ts';
 
