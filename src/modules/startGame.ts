@@ -8,8 +8,17 @@ declare global {
     }
 }
 
-export const startGame = (difficult) => {
-    const suitsBackground = {
+export interface ICardType {
+    suit: string;
+    value: string;
+}
+
+type suitsBackgroundType = {
+    [word: string]: string;
+};
+
+export const startGame = (difficult: string) => {
+    const suitsBackground: suitsBackgroundType = {
         '♠': 'spades.svg',
         '♣': 'clubs.svg',
         '♥': 'hearts.svg',
@@ -25,10 +34,10 @@ export const startGame = (difficult) => {
     ) as HTMLElement;
     gameTable.style.opacity = '1';
     gameSection.style.display = 'none';
-    const cardsIcons = createIconsArray(difficult);
+    const cardsIcons = createIconsArray(difficult) as ICardType[];
 
     const cardsHtml = cardsIcons
-        .map((card) => {
+        .map((card: ICardType) => {
             return `
       
       <div data-value=${card.value} data-suit=${
@@ -124,7 +133,7 @@ export const startGame = (difficult) => {
     }
 
     // вывод экрана окончания игры относительно результата
-    function isWinner(winner) {
+    function isWinner(winner: boolean) {
         clearInterval(window.timeGame);
         gameSection.style.display = 'block';
         const timerResult = coutDownEl.textContent;
@@ -163,6 +172,7 @@ export const startGame = (difficult) => {
 
         allCards.forEach((card, index) =>
             card.addEventListener('click', () => {
+                console.log(card);
                 if (
                     clickable === true &&
                     !card.classList.contains('successfully')
