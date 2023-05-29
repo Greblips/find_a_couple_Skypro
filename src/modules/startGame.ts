@@ -177,9 +177,11 @@ export const startGame = (difficult: string) => {
                     clickable === true &&
                     !card.classList.contains('successfully')
                 ) {
-                    card.querySelector('.card__back').classList.remove(
-                        'card__back'
-                    );
+                    card.querySelector('.card__back')
+                        ? card
+                              .querySelector('.card__back')
+                              .classList.remove('card__back')
+                        : false;
 
                     if (firstCard === null) {
                         firstCard = index;
